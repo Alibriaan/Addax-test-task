@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { Card } from '../../components/Card';
 import { Chip } from '../../components/Chip';
+import { Container } from '../../components/Container';
 import { Stack } from '../../components/Stack';
+import { HiddenScrollbarStyles } from '../../styles/scrollbar';
 import { Task } from '../../types/task.types';
 
 export interface TaskCardProps {
@@ -17,7 +19,18 @@ const TaskTagChip = styled(Chip)({
 const TaskCardWrapper = styled(Card).attrs(() => ({
   className: 'task-card',
   variant: 'paper',
-}))({ padding: '10px'});
+}))({
+  padding: '10px',
+  overflow: 'hidden',
+});
+
+
+const TaskTagsContainer = styled(Container)({
+  width: '100%',
+  overflow: 'auto',
+  padding: '5px 0',
+  ...HiddenScrollbarStyles,
+});
 
 export function TaskCard(props: React.PropsWithChildren<TaskCardProps>) {
 
@@ -26,9 +39,10 @@ export function TaskCard(props: React.PropsWithChildren<TaskCardProps>) {
       variant='paper'
       onDoubleClick={props.onDoubleClick}
     >
+    <TaskTagsContainer>
       <Stack
         flexDirection='row'
-        flexWrap='wrap'
+        alignItems='center'
         spacing={5}
       >
         {
@@ -41,6 +55,7 @@ export function TaskCard(props: React.PropsWithChildren<TaskCardProps>) {
           ))
         }
       </Stack>
+    </TaskTagsContainer>
 
       {props.task.name}
     </TaskCardWrapper>

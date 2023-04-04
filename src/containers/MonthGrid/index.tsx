@@ -1,5 +1,4 @@
 import moment from 'moment';
-import React from 'react';
 import { Grid } from '../../components/Grid';
 import { Task } from '../../types/task.types';
 import { DayCard } from '../../containers/DayCard';
@@ -10,7 +9,6 @@ import {
 import {
   setActiveDate
 } from '../../store/slices/calendar';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, selectSearchedTasksSelector } from '../../store';
 import { DATE_FORMAT } from '../../constants';

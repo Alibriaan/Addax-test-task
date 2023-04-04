@@ -23,6 +23,7 @@ export const Stack = styled.div.attrs(() => ({
   flex-direction: ${props => props.flexDirection || 'column'};
   justify-content: ${props => props.justifyContent || ''};
   align-items: ${props => props.alignItems || ''};
+  flex-wrap: ${props => props.flexWrap || 'nowrap'};
 
   & > *:first-child {
     margin-top: 0;

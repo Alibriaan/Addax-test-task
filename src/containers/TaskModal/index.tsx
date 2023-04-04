@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { ColorPicker } from '../../components/CollorPicker';
-import { Container } from '../../components/Container';
 import { Input } from '../../components/Input';
 import { Overlay } from '../../components/Overlay';
 import { Stack } from '../../components/Stack';
@@ -12,7 +11,6 @@ import { changeTaskModalVisibility, TaskModalMode } from '../../store/slices/ui'
 import { updateActiveTaskId, createTask, updateTask, deleteTask } from '../../store/slices/tasks';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { v4 as uuidv4 } from 'uuid';
 import { useTaskModal } from '../../hooks/useTaskModal';
 import { activeTaskIdSelector, tasksSelector } from '../../store/selectors/tasks';
 import { taskModalModeSelector, taskModalVisibleSelector } from '../../store/selectors/ui';
@@ -25,6 +23,7 @@ const TaskModalWrapper = styled(Overlay)<{ visible: boolean }>`
   opacity: ${props => props.visible ? 1 : 0};
   pointer-events: ${props => props.visible ? 'all' : 'none'};
 `
+
 const TaskModalCard = styled(Card).attrs(() => ({ variant: 'paper' }))`
   position: fixed;
   top: 50%;
